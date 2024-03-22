@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SchoolModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SchoolModelStoreContainer">
+          <EntitySet Name="Classroom" EntityType="SchoolModel.Store.Classroom" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Lesson" EntityType="SchoolModel.Store.Lesson" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Note" EntityType="SchoolModel.Store.Note" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Registerated" EntityType="SchoolModel.Store.Registerated" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StudentsinSchool" EntityType="SchoolModel.Store.StudentsinSchool" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="SchoolModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Teacher" EntityType="SchoolModel.Store.Teacher" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="techer_lesson" EntityType="SchoolModel.Store.techer_lesson" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Classroom_Teacher" Association="SchoolModel.Store.FK_Classroom_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Classroom" EntitySet="Classroom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Note_Lesson" Association="SchoolModel.Store.FK_Note_Lesson">
+            <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="Note" EntitySet="Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Note_StudentsinSchool1" Association="SchoolModel.Store.FK_Note_StudentsinSchool1">
+            <End Role="StudentsinSchool" EntitySet="StudentsinSchool" />
+            <End Role="Note" EntitySet="Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentsinSchool_Registerated" Association="SchoolModel.Store.FK_StudentsinSchool_Registerated">
+            <End Role="Registerated" EntitySet="Registerated" />
+            <End Role="StudentsinSchool" EntitySet="StudentsinSchool" />
+          </AssociationSet>
+          <AssociationSet Name="FK_techer_lesson_Lesson" Association="SchoolModel.Store.FK_techer_lesson_Lesson">
+            <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="techer_lesson" EntitySet="techer_lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_techer_lesson_Teacher" Association="SchoolModel.Store.FK_techer_lesson_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="techer_lesson" EntitySet="techer_lesson" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Classroom">
+          <Key>
+            <PropertyRef Name="ClassroomID" />
+          </Key>
+          <Property Name="ClassroomID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Sinifi" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="TeacherID" Type="int" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="LessonID" />
+          </Key>
+          <Property Name="LessonID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DersAdı" Type="nvarchar" MaxLength="50" />
+          <Property Name="DersKredi" Type="int" />
+          <Property Name="TeacherID" Type="int" />
+          <Property Name="DonemBasTarihi" Type="date" />
+          <Property Name="DonemBitTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BirinciSınav" Type="int" />
+          <Property Name="ikinciSınav" Type="int" />
+          <Property Name="SonSınav" Type="int" />
+          <Property Name="Davranıspuan" Type="int" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="LessonID" Type="int" />
+        </EntityType>
+        <EntityType Name="Registerated">
+          <Key>
+            <PropertyRef Name="KayıtID" />
+          </Key>
+          <Property Name="KayıtID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="VeliAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Velisoyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="char" MaxLength="17" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="StudentsinSchool">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciAdi" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="OgrenciSoyadi" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="KayıtYılı" Type="int" />
+          <Property Name="MezunolunanOkul" Type="nvarchar" MaxLength="50" />
+          <Property Name="NotOrt" Type="int" Nullable="false" />
+          <Property Name="ClassroomID" Type="int" />
+          <Property Name="ResimYolu" Type="nvarchar(max)" />
+          <Property Name="KayıtID" Type="int" />
+          <Property Name="LessonID" Type="int" />
+          <Property Name="NoteID" Type="int" />
+          <Property Name="Raporlu" Type="nvarchar" MaxLength="10" />
+          <Property Name="TakdirBelgesi" Type="nvarchar" MaxLength="10" />
+          <Property Name="Devam Durumu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="TeacherID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OgretmenAdi" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="OgretmenSoyadi" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Bransi" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Gorev" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LessonID" Type="int" />
+        </EntityType>
+        <EntityType Name="techer_lesson">
+          <Key>
+            <PropertyRef Name="LessonID" />
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="LessonID" Type="int" Nullable="false" />
+          <Property Name="TeacherID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SecmeliDers" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Classroom_Teacher">
+          <End Role="Teacher" Type="SchoolModel.Store.Teacher" Multiplicity="0..1" />
+          <End Role="Classroom" Type="SchoolModel.Store.Classroom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="Classroom">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Note_Lesson">
+          <End Role="Lesson" Type="SchoolModel.Store.Lesson" Multiplicity="0..1" />
+          <End Role="Note" Type="SchoolModel.Store.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="LessonID" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Note_StudentsinSchool1">
+          <End Role="StudentsinSchool" Type="SchoolModel.Store.StudentsinSchool" Multiplicity="0..1" />
+          <End Role="Note" Type="SchoolModel.Store.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentsinSchool">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentsinSchool_Registerated">
+          <End Role="Registerated" Type="SchoolModel.Store.Registerated" Multiplicity="0..1" />
+          <End Role="StudentsinSchool" Type="SchoolModel.Store.StudentsinSchool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registerated">
+              <PropertyRef Name="KayıtID" />
+            </Principal>
+            <Dependent Role="StudentsinSchool">
+              <PropertyRef Name="KayıtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_techer_lesson_Lesson">
+          <End Role="Lesson" Type="SchoolModel.Store.Lesson" Multiplicity="1" />
+          <End Role="techer_lesson" Type="SchoolModel.Store.techer_lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="LessonID" />
+            </Principal>
+            <Dependent Role="techer_lesson">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_techer_lesson_Teacher">
+          <End Role="Teacher" Type="SchoolModel.Store.Teacher" Multiplicity="1" />
+          <End Role="techer_lesson" Type="SchoolModel.Store.techer_lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="techer_lesson">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SchoolModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SchoolEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Classrooms" EntityType="SchoolModel.Classroom" />
+          <EntitySet Name="Lessons" EntityType="SchoolModel.Lesson" />
+          <EntitySet Name="Notes" EntityType="SchoolModel.Note" />
+          <EntitySet Name="Registerateds" EntityType="SchoolModel.Registerated" />
+          <EntitySet Name="StudentsinSchools" EntityType="SchoolModel.StudentsinSchool" />
+          <EntitySet Name="sysdiagrams" EntityType="SchoolModel.sysdiagram" />
+          <EntitySet Name="Teachers" EntityType="SchoolModel.Teacher" />
+          <EntitySet Name="techer_lesson" EntityType="SchoolModel.techer_lesson" />
+          <AssociationSet Name="FK_Classroom_Teacher" Association="SchoolModel.FK_Classroom_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Classroom" EntitySet="Classrooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Note_Lesson" Association="SchoolModel.FK_Note_Lesson">
+            <End Role="Lesson" EntitySet="Lessons" />
+            <End Role="Note" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_techer_lesson_Lesson" Association="SchoolModel.FK_techer_lesson_Lesson">
+            <End Role="Lesson" EntitySet="Lessons" />
+            <End Role="techer_lesson" EntitySet="techer_lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Note_StudentsinSchool1" Association="SchoolModel.FK_Note_StudentsinSchool1">
+            <End Role="StudentsinSchool" EntitySet="StudentsinSchools" />
+            <End Role="Note" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentsinSchool_Registerated" Association="SchoolModel.FK_StudentsinSchool_Registerated">
+            <End Role="Registerated" EntitySet="Registerateds" />
+            <End Role="StudentsinSchool" EntitySet="StudentsinSchools" />
+          </AssociationSet>
+          <AssociationSet Name="FK_techer_lesson_Teacher" Association="SchoolModel.FK_techer_lesson_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="techer_lesson" EntitySet="techer_lesson" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Classroom">
+          <Key>
+            <PropertyRef Name="ClassroomID" />
+          </Key>
+          <Property Name="ClassroomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sinifi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="TeacherID" Type="Int32" />
+          <NavigationProperty Name="Teacher" Relationship="SchoolModel.FK_Classroom_Teacher" FromRole="Classroom" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="LessonID" />
+          </Key>
+          <Property Name="LessonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DersAdı" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DersKredi" Type="Int32" />
+          <Property Name="TeacherID" Type="Int32" />
+          <Property Name="DonemBasTarihi" Type="DateTime" />
+          <Property Name="DonemBitTarihi" Type="DateTime" />
+          <NavigationProperty Name="Notes" Relationship="SchoolModel.FK_Note_Lesson" FromRole="Lesson" ToRole="Note" />
+          <NavigationProperty Name="techer_lesson" Relationship="SchoolModel.FK_techer_lesson_Lesson" FromRole="Lesson" ToRole="techer_lesson" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BirinciSınav" Type="Int32" />
+          <Property Name="ikinciSınav" Type="Int32" />
+          <Property Name="SonSınav" Type="Int32" />
+          <Property Name="Davranıspuan" Type="Int32" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="LessonID" Type="Int32" />
+          <NavigationProperty Name="Lesson" Relationship="SchoolModel.FK_Note_Lesson" FromRole="Note" ToRole="Lesson" />
+          <NavigationProperty Name="StudentsinSchool" Relationship="SchoolModel.FK_Note_StudentsinSchool1" FromRole="Note" ToRole="StudentsinSchool" />
+        </EntityType>
+        <EntityType Name="Registerated">
+          <Key>
+            <PropertyRef Name="KayıtID" />
+          </Key>
+          <Property Name="KayıtID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VeliAdi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Velisoyadi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Telefon" Type="String" MaxLength="17" Unicode="false" FixedLength="true" />
+          <Property Name="Adres" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="StudentsinSchools" Relationship="SchoolModel.FK_StudentsinSchool_Registerated" FromRole="Registerated" ToRole="StudentsinSchool" />
+        </EntityType>
+        <EntityType Name="StudentsinSchool">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciAdi" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OgrenciSoyadi" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KayıtYılı" Type="Int32" />
+          <Property Name="MezunolunanOkul" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NotOrt" Type="Int32" Nullable="false" />
+          <Property Name="ClassroomID" Type="Int32" />
+          <Property Name="ResimYolu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="KayıtID" Type="Int32" />
+          <Property Name="LessonID" Type="Int32" />
+          <Property Name="NoteID" Type="Int32" />
+          <Property Name="Raporlu" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="TakdirBelgesi" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Devam_Durumu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Notes" Relationship="SchoolModel.FK_Note_StudentsinSchool1" FromRole="StudentsinSchool" ToRole="Note" />
+          <NavigationProperty Name="Registerated" Relationship="SchoolModel.FK_StudentsinSchool_Registerated" FromRole="StudentsinSchool" ToRole="Registerated" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="TeacherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgretmenAdi" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="OgretmenSoyadi" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Bransi" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Gorev" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LessonID" Type="Int32" />
+          <NavigationProperty Name="Classrooms" Relationship="SchoolModel.FK_Classroom_Teacher" FromRole="Teacher" ToRole="Classroom" />
+          <NavigationProperty Name="techer_lesson" Relationship="SchoolModel.FK_techer_lesson_Teacher" FromRole="Teacher" ToRole="techer_lesson" />
+        </EntityType>
+        <EntityType Name="techer_lesson">
+          <Key>
+            <PropertyRef Name="LessonID" />
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="LessonID" Type="Int32" Nullable="false" />
+          <Property Name="TeacherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SecmeliDers" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Lesson" Relationship="SchoolModel.FK_techer_lesson_Lesson" FromRole="techer_lesson" ToRole="Lesson" />
+          <NavigationProperty Name="Teacher" Relationship="SchoolModel.FK_techer_lesson_Teacher" FromRole="techer_lesson" ToRole="Teacher" />
+        </EntityType>
+        <Association Name="FK_Classroom_Teacher">
+          <End Role="Teacher" Type="SchoolModel.Teacher" Multiplicity="0..1" />
+          <End Role="Classroom" Type="SchoolModel.Classroom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="Classroom">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Note_Lesson">
+          <End Role="Lesson" Type="SchoolModel.Lesson" Multiplicity="0..1" />
+          <End Role="Note" Type="SchoolModel.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="LessonID" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_techer_lesson_Lesson">
+          <End Role="Lesson" Type="SchoolModel.Lesson" Multiplicity="1" />
+          <End Role="techer_lesson" Type="SchoolModel.techer_lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="LessonID" />
+            </Principal>
+            <Dependent Role="techer_lesson">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Note_StudentsinSchool1">
+          <End Role="StudentsinSchool" Type="SchoolModel.StudentsinSchool" Multiplicity="0..1" />
+          <End Role="Note" Type="SchoolModel.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentsinSchool">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentsinSchool_Registerated">
+          <End Role="Registerated" Type="SchoolModel.Registerated" Multiplicity="0..1" />
+          <End Role="StudentsinSchool" Type="SchoolModel.StudentsinSchool" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registerated">
+              <PropertyRef Name="KayıtID" />
+            </Principal>
+            <Dependent Role="StudentsinSchool">
+              <PropertyRef Name="KayıtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_techer_lesson_Teacher">
+          <End Role="Teacher" Type="SchoolModel.Teacher" Multiplicity="1" />
+          <End Role="techer_lesson" Type="SchoolModel.techer_lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="techer_lesson">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SchoolModelStoreContainer" CdmEntityContainer="SchoolEntities3">
+          <EntitySetMapping Name="Classrooms"><EntityTypeMapping TypeName="SchoolModel.Classroom"><MappingFragment StoreEntitySet="Classroom">
+            <ScalarProperty Name="ClassroomID" ColumnName="ClassroomID" />
+            <ScalarProperty Name="Sinifi" ColumnName="Sinifi" />
+            <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+            <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Lessons"><EntityTypeMapping TypeName="SchoolModel.Lesson"><MappingFragment StoreEntitySet="Lesson">
+            <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+            <ScalarProperty Name="DersAdı" ColumnName="DersAdı" />
+            <ScalarProperty Name="DersKredi" ColumnName="DersKredi" />
+            <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+            <ScalarProperty Name="DonemBasTarihi" ColumnName="DonemBasTarihi" />
+            <ScalarProperty Name="DonemBitTarihi" ColumnName="DonemBitTarihi" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Notes"><EntityTypeMapping TypeName="SchoolModel.Note"><MappingFragment StoreEntitySet="Note">
+            <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+            <ScalarProperty Name="BirinciSınav" ColumnName="BirinciSınav" />
+            <ScalarProperty Name="ikinciSınav" ColumnName="ikinciSınav" />
+            <ScalarProperty Name="SonSınav" ColumnName="SonSınav" />
+            <ScalarProperty Name="Davranıspuan" ColumnName="Davranıspuan" />
+            <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+            <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Registerateds"><EntityTypeMapping TypeName="SchoolModel.Registerated"><MappingFragment StoreEntitySet="Registerated">
+            <ScalarProperty Name="KayıtID" ColumnName="KayıtID" />
+            <ScalarProperty Name="VeliAdi" ColumnName="VeliAdi" />
+            <ScalarProperty Name="Velisoyadi" ColumnName="Velisoyadi" />
+            <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+            <ScalarProperty Name="Adres" ColumnName="Adres" />
+            <ScalarProperty Name="email" ColumnName="email" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="StudentsinSchools"><EntityTypeMapping TypeName="SchoolModel.StudentsinSchool"><MappingFragment StoreEntitySet="StudentsinSchool">
+            <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+            <ScalarProperty Name="OgrenciAdi" ColumnName="OgrenciAdi" />
+            <ScalarProperty Name="OgrenciSoyadi" ColumnName="OgrenciSoyadi" />
+            <ScalarProperty Name="KayıtYılı" ColumnName="KayıtYılı" />
+            <ScalarProperty Name="MezunolunanOkul" ColumnName="MezunolunanOkul" />
+            <ScalarProperty Name="NotOrt" ColumnName="NotOrt" />
+            <ScalarProperty Name="ClassroomID" ColumnName="ClassroomID" />
+            <ScalarProperty Name="ResimYolu" ColumnName="ResimYolu" />
+            <ScalarProperty Name="KayıtID" ColumnName="KayıtID" />
+            <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+            <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+            <ScalarProperty Name="Raporlu" ColumnName="Raporlu" />
+            <ScalarProperty Name="TakdirBelgesi" ColumnName="TakdirBelgesi" />
+            <ScalarProperty Name="Devam_Durumu" ColumnName="Devam Durumu" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="SchoolModel.sysdiagram"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Teachers"><EntityTypeMapping TypeName="SchoolModel.Teacher"><MappingFragment StoreEntitySet="Teacher">
+            <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+            <ScalarProperty Name="OgretmenAdi" ColumnName="OgretmenAdi" />
+            <ScalarProperty Name="OgretmenSoyadi" ColumnName="OgretmenSoyadi" />
+            <ScalarProperty Name="Bransi" ColumnName="Bransi" />
+            <ScalarProperty Name="Gorev" ColumnName="Gorev" />
+            <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="techer_lesson"><EntityTypeMapping TypeName="SchoolModel.techer_lesson"><MappingFragment StoreEntitySet="techer_lesson">
+            <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+            <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+            <ScalarProperty Name="SecmeliDers" ColumnName="SecmeliDers" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BKModel">
+        <EntityTypeShape EntityType="SchoolModel.Classroom" Width="1.5" PointX="6" PointY="7.875" Height="1.9802864583333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolModel.Lesson" Width="1.5" PointX="0.75" PointY="2.5" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolModel.Note" Width="1.5" PointX="3" PointY="2.5" Height="2.7494921874999991" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolModel.Registerated" Width="1.5" PointX="1.5" PointY="11.625" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolModel.StudentsinSchool" Width="1.5" PointX="0.75" PointY="6.75" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolModel.sysdiagram" Width="1.5" PointX="8.75" PointY="0.75" Height="1.9802864583333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolModel.Teacher" Width="1.5" PointX="3.75" PointY="7.5" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolModel.techer_lesson" Width="1.5" PointX="6" PointY="2.875" Height="1.9802864583333313" IsExpanded="true" />
+        <AssociationConnector Association="SchoolModel.FK_Classroom_Teacher" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="8.8651432291666659" />
+          <ConnectorPoint PointX="6" PointY="8.8651432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="SchoolModel.FK_Note_Lesson" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.7785953776041663" />
+          <ConnectorPoint PointX="3" PointY="3.7785953776041663" />
+        </AssociationConnector>
+        <AssociationConnector Association="SchoolModel.FK_techer_lesson_Lesson" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="2.5" />
+          <ConnectorPoint PointX="1.5" PointY="2.25" />
+          <ConnectorPoint PointX="5.625" PointY="2.25" />
+          <ConnectorPoint PointX="5.625" PointY="3.8651432291666659" />
+          <ConnectorPoint PointX="6" PointY="3.8651432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="SchoolModel.FK_Note_StudentsinSchool1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.482646484375" />
+          <ConnectorPoint PointX="3.34375" PointY="10.482646484375" />
+          <ConnectorPoint PointX="3.34375" PointY="5.2494921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="SchoolModel.FK_StudentsinSchool_Registerated" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.875" PointY="11.625" />
+          <ConnectorPoint PointX="1.875" PointY="10.845602213541667" />
+        </AssociationConnector>
+        <AssociationConnector Association="SchoolModel.FK_techer_lesson_Teacher" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="7.5623066923076925" />
+          <ConnectorPoint PointX="5.6875" PointY="7.1248066923076934" />
+          <ConnectorPoint PointX="5.6875" PointY="4.3914668437499991" />
+          <ConnectorPoint PointX="6" PointY="4.3914668437499991" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

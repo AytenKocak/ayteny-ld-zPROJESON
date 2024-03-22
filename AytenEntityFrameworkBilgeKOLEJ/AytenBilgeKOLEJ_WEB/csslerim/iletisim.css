@@ -1,0 +1,38 @@
+﻿#container
+{
+    width: 900px;
+    height: 780px;
+    background-color:#63523E;
+    margin: 0px auto;
+}
+#header
+{
+    width: 840px;
+    height: 120px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #A08163;
+ 
+}
+
+
+#content
+{
+    width: 840px;
+    height: 404px;
+    margin: 10px;
+    padding: 10px;
+    background-color:Gray;
+   
+}
+#footer
+{
+    width: 840px;
+    height: 118px;
+    margin: 22px 10px 10px 10px;
+    padding: 10px;
+    background-color: #A08163;
+ 
+    
+}
+

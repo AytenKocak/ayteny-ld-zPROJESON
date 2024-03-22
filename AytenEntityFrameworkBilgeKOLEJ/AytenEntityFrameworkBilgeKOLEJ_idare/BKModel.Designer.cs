@@ -1,0 +1,2 @@
+﻿// Seeing this comment implies that the code generation for file 'C:\Users\caner\Desktop\yazılımNotları\aytenyıldızPROJESON\AytenEntityFrameworkBilgeKOLEJ\AytenEntityFrameworkBilgeKOLEJ_idare\BKModel.edmx'
+// failed. See the ErrorList for details.

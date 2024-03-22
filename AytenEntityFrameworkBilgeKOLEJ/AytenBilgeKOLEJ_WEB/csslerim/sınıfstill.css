@@ -1,0 +1,26 @@
+﻿#container
+{
+    width: 900px;
+    height: 1800px;
+    background-color:#63523E;
+    margin: 0px auto;
+}
+#header
+{
+    width: 840px;
+    height: 120px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #A08163;
+ 
+}
+#anakontent
+
+{
+    width: 860px;
+    height: 1750px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #63523E;
+ 
+}

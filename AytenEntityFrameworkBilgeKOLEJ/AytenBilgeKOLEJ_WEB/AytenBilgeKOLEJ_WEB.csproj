@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F78F6CDA-8B34-4A89-81D0-AFED300DCA9C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AytenBilgeKOLEJ_WEB</RootNamespace>
+    <AssemblyName>AytenBilgeKOLEJ_WEB</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="contact.html" />
+    <Content Include="content.html" />
+    <Content Include="css.css" />
+    <Content Include="csslerim\stilim.css" />
+    <Content Include="csslerim\sınıfstill.css" />
+    <Content Include="defoult.aspx" />
+    <Content Include="duyurular.aspx" />
+    <Content Include="hakkımızda.aspx" />
+    <Content Include="html\contact.html" />
+    <Content Include="html\content.html" />
+    <Content Include="html\css.css" />
+    <Content Include="html\index.html" />
+    <Content Include="csslerim\iletisim.css" />
+    <Content Include="iletisim.aspx" />
+    <Content Include="images\index_01.gif" />
+    <Content Include="images\index_02.gif" />
+    <Content Include="images\index_03.gif" />
+    <Content Include="images\index_04.gif" />
+    <Content Include="images\index_05.gif" />
+    <Content Include="images\index_06.gif" />
+    <Content Include="images\index_07.gif" />
+    <Content Include="images\index_08.gif" />
+    <Content Include="images\index_09.gif" />
+    <Content Include="images\index_10.gif" />
+    <Content Include="images\index_11.gif" />
+    <Content Include="images\index_12.gif" />
+    <Content Include="images\index_13.gif" />
+    <Content Include="images\index_14.gif" />
+    <Content Include="images\index_15.gif" />
+    <Content Include="images\index_16.gif" />
+    <Content Include="images\index_17.gif" />
+    <Content Include="images\index_18.gif" />
+    <Content Include="images\index_19.gif" />
+    <Content Include="images\index_20.gif" />
+    <Content Include="images\index_21.gif" />
+    <Content Include="images\index_22.gif" />
+    <Content Include="images\index_23.gif" />
+    <Content Include="images\index_24.gif" />
+    <Content Include="images\index_25.gif" />
+    <Content Include="images\index_26.gif" />
+    <Content Include="images\index_27.gif" />
+    <Content Include="images\index_28.gif" />
+    <Content Include="images\index_29.gif" />
+    <Content Include="images\index_30.gif" />
+    <Content Include="images\index_31.gif" />
+    <Content Include="images\index_32.gif" />
+    <Content Include="images\index_33.gif" />
+    <Content Include="images\index_34.gif" />
+    <Content Include="images\index_35.gif" />
+    <Content Include="images\index_36.gif" />
+    <Content Include="images\index_37.gif" />
+    <Content Include="images\index_38.gif" />
+    <Content Include="images\index_39.gif" />
+    <Content Include="images\index_40.gif" />
+    <Content Include="images\index_41.gif" />
+    <Content Include="images\index_42.gif" />
+    <Content Include="images\index_43.gif" />
+    <Content Include="images\index_44.gif" />
+    <Content Include="images\index_45.gif" />
+    <Content Include="images\index_46.gif" />
+    <Content Include="images\index_47.gif" />
+    <Content Include="images\index_48.gif" />
+    <Content Include="images\index_49.gif" />
+    <Content Include="images\index_50.gif" />
+    <Content Include="images\index_51.gif" />
+    <Content Include="images\index_52.gif" />
+    <Content Include="images\index_53.gif" />
+    <Content Include="images\index_54.gif" />
+    <Content Include="images\index_55.gif" />
+    <Content Include="images\index_56.gif" />
+    <Content Include="images\index_57.gif" />
+    <Content Include="images\index_58.gif" />
+    <Content Include="images\index_59.gif" />
+    <Content Include="images\index_60.gif" />
+    <Content Include="images\index_61.gif" />
+    <Content Include="images\index_62.gif" />
+    <Content Include="images\index_63.gif" />
+    <Content Include="images\index_64.gif" />
+    <Content Include="images\index_65.gif" />
+    <Content Include="images\index_66.gif" />
+    <Content Include="images\index_67.gif" />
+    <Content Include="images\index_68.gif" />
+    <Content Include="images\index_69.gif" />
+    <Content Include="images\index_70.gif" />
+    <Content Include="images\index_71.gif" />
+    <Content Include="images\index_72.gif" />
+    <Content Include="images\index_73.gif" />
+    <Content Include="images\index_74.gif" />
+    <Content Include="images\index_75.gif" />
+    <Content Include="images\index_76.gif" />
+    <Content Include="images\index_77.gif" />
+    <Content Include="images\index_78.gif" />
+    <Content Include="images\index_79.gif" />
+    <Content Include="images\index_80.gif" />
+    <Content Include="images\index_81.gif" />
+    <Content Include="images\index_82.gif" />
+    <Content Include="images\index_83.gif" />
+    <Content Include="images\index_84.gif" />
+    <Content Include="images\index_85.gif" />
+    <Content Include="images\index_86.gif" />
+    <Content Include="images\index_87.gif" />
+    <Content Include="images\reset.gif" />
+    <Content Include="images\spacer.gif" />
+    <Content Include="images\submit.gif" />
+    <Content Include="index.html" />
+    <Content Include="ogrenciler.aspx" />
+    <Content Include="resimlerim\a.jpg" />
+    <Content Include="resimlerim\b.jpg" />
+    <Content Include="resimlerim\bilgekoleji.jpg" />
+    <Content Include="resimlerim\BilgeKolejı.jpg" />
+    <Content Include="resimlerim\h1.jpg" />
+    <Content Include="sonuclar.aspx" />
+    <Content Include="students\resim10.jpg" />
+    <Content Include="students\resim11.jpg" />
+    <Content Include="students\resim12.jpg" />
+    <Content Include="students\resim13.jpg" />
+    <Content Include="students\resim9.jpg" />
+    <Content Include="students\resım8.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="defoult.aspx.cs">
+      <DependentUpon>defoult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="defoult.aspx.designer.cs">
+      <DependentUpon>defoult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="duyurular.aspx.cs">
+      <DependentUpon>duyurular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="duyurular.aspx.designer.cs">
+      <DependentUpon>duyurular.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="hakkımızda.aspx.cs">
+      <DependentUpon>hakkımızda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hakkımızda.aspx.designer.cs">
+      <DependentUpon>hakkımızda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iletisim.aspx.cs">
+      <DependentUpon>iletisim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iletisim.aspx.designer.cs">
+      <DependentUpon>iletisim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ogrenciler.aspx.cs">
+      <DependentUpon>ogrenciler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ogrenciler.aspx.designer.cs">
+      <DependentUpon>ogrenciler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sablon.Master.cs">
+      <DependentUpon>sablon.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sablon.Master.designer.cs">
+      <DependentUpon>sablon.Master</DependentUpon>
+    </Compile>
+    <Compile Include="sonuclar.aspx.cs">
+      <DependentUpon>sonuclar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sonuclar.aspx.designer.cs">
+      <DependentUpon>sonuclar.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fonts\ANTQUAB.TTF" />
+    <None Include="fonts\BKANT.TTF" />
+    <None Include="fonts\Headache.TTF" />
+    <None Include="fonts\SCRIPTBL.TTF" />
+    <None Include="fonts\tahoma.ttf" />
+    <None Include="fonts\tahomabd.ttf" />
+    <None Include="fonts\verdana.ttf" />
+    <None Include="fonts\verdanab.ttf" />
+    <None Include="psd\content.PSD" />
+    <None Include="psd\index.PSD" />
+    <None Include="psd\Thumbs.db" />
+    <Content Include="sablon.Master" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1077</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
